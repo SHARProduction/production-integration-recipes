@@ -1,0 +1,313 @@
+{
+  "schema_version": "1.0.0",
+  "publisher": {
+    "name": "SHAR Production",
+    "website": "https://sharprod.com/"
+  },
+  "incremental_spend_rub": 0,
+  "release": {
+    "release_id": "shar.release.integration-recipes.1.0.0",
+    "version": "1.0.0",
+    "immutable_ref": "v1.0.0"
+  },
+  "works": [
+    {
+      "work_id": "shar.work.recipe.subtitle-delivery-qc",
+      "title": {
+        "en": "Subtitle delivery QC",
+        "ru": "Проверка доставки субтитров"
+      },
+      "license": "MIT",
+      "fixtures_license": "CC-BY-4.0"
+    },
+    {
+      "work_id": "shar.work.recipe.deliverable-manifest-validation",
+      "title": {
+        "en": "Deliverable manifest validation",
+        "ru": "Проверка манифеста материалов"
+      },
+      "license": "MIT",
+      "fixtures_license": "CC-BY-4.0"
+    },
+    {
+      "work_id": "shar.work.recipe.localized-file-naming",
+      "title": {
+        "en": "Localized file naming",
+        "ru": "Имена локализованных файлов"
+      },
+      "license": "MIT",
+      "fixtures_license": "CC-BY-4.0"
+    },
+    {
+      "work_id": "shar.work.recipe.production-handoff-gate",
+      "title": {
+        "en": "Production handoff gate",
+        "ru": "Гейт передачи продакшена"
+      },
+      "license": "MIT",
+      "fixtures_license": "CC-BY-4.0"
+    },
+    {
+      "work_id": "shar.work.recipe.checksum-inventory",
+      "title": {
+        "en": "Checksum inventory verification",
+        "ru": "Проверка реестра контрольных сумм"
+      },
+      "license": "MIT",
+      "fixtures_license": "CC-BY-4.0"
+    }
+  ],
+  "representations": [
+    {
+      "representation_id": "shar.representation.recipe.subtitle-delivery-qc.en",
+      "work_id": "shar.work.recipe.subtitle-delivery-qc",
+      "language": "en",
+      "format": "html"
+    },
+    {
+      "representation_id": "shar.representation.recipe.subtitle-delivery-qc.ru",
+      "work_id": "shar.work.recipe.subtitle-delivery-qc",
+      "language": "ru",
+      "format": "html"
+    },
+    {
+      "representation_id": "shar.representation.recipe.deliverable-manifest-validation.en",
+      "work_id": "shar.work.recipe.deliverable-manifest-validation",
+      "language": "en",
+      "format": "html"
+    },
+    {
+      "representation_id": "shar.representation.recipe.deliverable-manifest-validation.ru",
+      "work_id": "shar.work.recipe.deliverable-manifest-validation",
+      "language": "ru",
+      "format": "html"
+    },
+    {
+      "representation_id": "shar.representation.recipe.localized-file-naming.en",
+      "work_id": "shar.work.recipe.localized-file-naming",
+      "language": "en",
+      "format": "html"
+    },
+    {
+      "representation_id": "shar.representation.recipe.localized-file-naming.ru",
+      "work_id": "shar.work.recipe.localized-file-naming",
+      "language": "ru",
+      "format": "html"
+    },
+    {
+      "representation_id": "shar.representation.recipe.production-handoff-gate.en",
+      "work_id": "shar.work.recipe.production-handoff-gate",
+      "language": "en",
+      "format": "html"
+    },
+    {
+      "representation_id": "shar.representation.recipe.production-handoff-gate.ru",
+      "work_id": "shar.work.recipe.production-handoff-gate",
+      "language": "ru",
+      "format": "html"
+    },
+    {
+      "representation_id": "shar.representation.recipe.checksum-inventory.en",
+      "work_id": "shar.work.recipe.checksum-inventory",
+      "language": "en",
+      "format": "html"
+    },
+    {
+      "representation_id": "shar.representation.recipe.checksum-inventory.ru",
+      "work_id": "shar.work.recipe.checksum-inventory",
+      "language": "ru",
+      "format": "html"
+    }
+  ],
+  "placements": [
+    {
+      "placement_id": "shar.placement.recipe.subtitle-delivery-qc.cloudflare.en",
+      "work_ids": [
+        "shar.work.recipe.subtitle-delivery-qc"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.subtitle-delivery-qc.en"
+      ],
+      "provider": "Cloudflare Pages",
+      "ownership_group": "cloudflare-account-75c1f9254ca84261915fdae717f25395",
+      "public_url": "https://shar-production-integration-recipes.pages.dev/en/subtitle-delivery-qc/",
+      "status": "PLANNED"
+    },
+    {
+      "placement_id": "shar.placement.recipe.subtitle-delivery-qc.cloudflare.ru",
+      "work_ids": [
+        "shar.work.recipe.subtitle-delivery-qc"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.subtitle-delivery-qc.ru"
+      ],
+      "provider": "Cloudflare Pages",
+      "ownership_group": "cloudflare-account-75c1f9254ca84261915fdae717f25395",
+      "public_url": "https://shar-production-integration-recipes.pages.dev/ru/subtitle-delivery-qc/",
+      "status": "PLANNED"
+    },
+    {
+      "placement_id": "shar.placement.recipe.deliverable-manifest-validation.cloudflare.en",
+      "work_ids": [
+        "shar.work.recipe.deliverable-manifest-validation"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.deliverable-manifest-validation.en"
+      ],
+      "provider": "Cloudflare Pages",
+      "ownership_group": "cloudflare-account-75c1f9254ca84261915fdae717f25395",
+      "public_url": "https://shar-production-integration-recipes.pages.dev/en/deliverable-manifest-validation/",
+      "status": "PLANNED"
+    },
+    {
+      "placement_id": "shar.placement.recipe.deliverable-manifest-validation.cloudflare.ru",
+      "work_ids": [
+        "shar.work.recipe.deliverable-manifest-validation"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.deliverable-manifest-validation.ru"
+      ],
+      "provider": "Cloudflare Pages",
+      "ownership_group": "cloudflare-account-75c1f9254ca84261915fdae717f25395",
+      "public_url": "https://shar-production-integration-recipes.pages.dev/ru/deliverable-manifest-validation/",
+      "status": "PLANNED"
+    },
+    {
+      "placement_id": "shar.placement.recipe.localized-file-naming.cloudflare.en",
+      "work_ids": [
+        "shar.work.recipe.localized-file-naming"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.localized-file-naming.en"
+      ],
+      "provider": "Cloudflare Pages",
+      "ownership_group": "cloudflare-account-75c1f9254ca84261915fdae717f25395",
+      "public_url": "https://shar-production-integration-recipes.pages.dev/en/localized-file-naming/",
+      "status": "PLANNED"
+    },
+    {
+      "placement_id": "shar.placement.recipe.localized-file-naming.cloudflare.ru",
+      "work_ids": [
+        "shar.work.recipe.localized-file-naming"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.localized-file-naming.ru"
+      ],
+      "provider": "Cloudflare Pages",
+      "ownership_group": "cloudflare-account-75c1f9254ca84261915fdae717f25395",
+      "public_url": "https://shar-production-integration-recipes.pages.dev/ru/localized-file-naming/",
+      "status": "PLANNED"
+    },
+    {
+      "placement_id": "shar.placement.recipe.production-handoff-gate.cloudflare.en",
+      "work_ids": [
+        "shar.work.recipe.production-handoff-gate"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.production-handoff-gate.en"
+      ],
+      "provider": "Cloudflare Pages",
+      "ownership_group": "cloudflare-account-75c1f9254ca84261915fdae717f25395",
+      "public_url": "https://shar-production-integration-recipes.pages.dev/en/production-handoff-gate/",
+      "status": "PLANNED"
+    },
+    {
+      "placement_id": "shar.placement.recipe.production-handoff-gate.cloudflare.ru",
+      "work_ids": [
+        "shar.work.recipe.production-handoff-gate"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.production-handoff-gate.ru"
+      ],
+      "provider": "Cloudflare Pages",
+      "ownership_group": "cloudflare-account-75c1f9254ca84261915fdae717f25395",
+      "public_url": "https://shar-production-integration-recipes.pages.dev/ru/production-handoff-gate/",
+      "status": "PLANNED"
+    },
+    {
+      "placement_id": "shar.placement.recipe.checksum-inventory.cloudflare.en",
+      "work_ids": [
+        "shar.work.recipe.checksum-inventory"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.checksum-inventory.en"
+      ],
+      "provider": "Cloudflare Pages",
+      "ownership_group": "cloudflare-account-75c1f9254ca84261915fdae717f25395",
+      "public_url": "https://shar-production-integration-recipes.pages.dev/en/checksum-inventory/",
+      "status": "PLANNED"
+    },
+    {
+      "placement_id": "shar.placement.recipe.checksum-inventory.cloudflare.ru",
+      "work_ids": [
+        "shar.work.recipe.checksum-inventory"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.checksum-inventory.ru"
+      ],
+      "provider": "Cloudflare Pages",
+      "ownership_group": "cloudflare-account-75c1f9254ca84261915fdae717f25395",
+      "public_url": "https://shar-production-integration-recipes.pages.dev/ru/checksum-inventory/",
+      "status": "PLANNED"
+    },
+    {
+      "placement_id": "shar.placement.integration-recipes.github",
+      "work_ids": [
+        "shar.work.recipe.subtitle-delivery-qc",
+        "shar.work.recipe.deliverable-manifest-validation",
+        "shar.work.recipe.localized-file-naming",
+        "shar.work.recipe.production-handoff-gate",
+        "shar.work.recipe.checksum-inventory"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.subtitle-delivery-qc.en",
+        "shar.representation.recipe.subtitle-delivery-qc.ru",
+        "shar.representation.recipe.deliverable-manifest-validation.en",
+        "shar.representation.recipe.deliverable-manifest-validation.ru",
+        "shar.representation.recipe.localized-file-naming.en",
+        "shar.representation.recipe.localized-file-naming.ru",
+        "shar.representation.recipe.production-handoff-gate.en",
+        "shar.representation.recipe.production-handoff-gate.ru",
+        "shar.representation.recipe.checksum-inventory.en",
+        "shar.representation.recipe.checksum-inventory.ru"
+      ],
+      "provider": "GitHub",
+      "ownership_group": "SHARProduction",
+      "public_url": "https://github.com/SHARProduction/production-integration-recipes",
+      "status": "PLANNED"
+    },
+    {
+      "placement_id": "shar.placement.integration-recipes.huggingface",
+      "work_ids": [
+        "shar.work.recipe.subtitle-delivery-qc",
+        "shar.work.recipe.deliverable-manifest-validation",
+        "shar.work.recipe.localized-file-naming",
+        "shar.work.recipe.production-handoff-gate",
+        "shar.work.recipe.checksum-inventory"
+      ],
+      "representation_ids": [
+        "shar.representation.recipe.subtitle-delivery-qc.en",
+        "shar.representation.recipe.subtitle-delivery-qc.ru",
+        "shar.representation.recipe.deliverable-manifest-validation.en",
+        "shar.representation.recipe.deliverable-manifest-validation.ru",
+        "shar.representation.recipe.localized-file-naming.en",
+        "shar.representation.recipe.localized-file-naming.ru",
+        "shar.representation.recipe.production-handoff-gate.en",
+        "shar.representation.recipe.production-handoff-gate.ru",
+        "shar.representation.recipe.checksum-inventory.en",
+        "shar.representation.recipe.checksum-inventory.ru"
+      ],
+      "provider": "Hugging Face",
+      "ownership_group": "SHARProduction",
+      "public_url": "https://huggingface.co/datasets/SHARProduction/production-integration-recipes",
+      "status": "PLANNED"
+    }
+  ],
+  "counting": {
+    "unique_works": 5,
+    "localized_representations": 10,
+    "verified_placements_when_all_checks_pass": 12,
+    "versions_count_as_new_work": false,
+    "collection_hosts_count_once": true
+  }
+}

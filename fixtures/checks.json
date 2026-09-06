@@ -1,0 +1,5 @@
+[
+  { "name": "subtitle delivery", "passed": true },
+  { "name": "manifest validation", "passed": true },
+  { "name": "checksum inventory", "passed": false }
+]

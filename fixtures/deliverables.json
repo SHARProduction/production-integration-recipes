@@ -1,0 +1,10 @@
+{
+  "project": "synthetic-campaign",
+  "deliverables": [
+    {
+      "path": "masters/campaign_master_en-US_v03.mov",
+      "locale": "en-US",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ]
+}
