@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { recipeCatalog } from '../src/recipes.mjs';
@@ -7,7 +7,7 @@ const CF = 'https://shar-production-integration-recipes.pages.dev';
 const GH = 'https://github.com/SHARProduction/production-integration-recipes';
 const HF = 'https://huggingface.co/datasets/SHARProduction/production-integration-recipes';
 
-export async function buildDistributionArtifacts(output, immutableRef) {
+export async function buildDistributionArtifacts(output, immutableRef, evidence = {}) {
   output = resolve(output);
   const workIds = recipeCatalog.map(recipe => `shar.work.recipe.${recipe.id}`);
   const works = recipeCatalog.map(recipe => ({ work_id: `shar.work.recipe.${recipe.id}`, title: recipe.title, license: 'MIT', fixtures_license: 'CC-BY-4.0' }));
@@ -23,6 +23,16 @@ export async function buildDistributionArtifacts(output, immutableRef) {
     { placement_id: 'shar.placement.integration-recipes.github', work_ids: workIds, representation_ids: representations.map(row => row.representation_id), provider: 'GitHub', ownership_group: 'SHARProduction', public_url: GH, status: 'PLANNED' },
     { placement_id: 'shar.placement.integration-recipes.huggingface', work_ids: workIds, representation_ids: representations.map(row => row.representation_id), provider: 'Hugging Face', ownership_group: 'SHARProduction', public_url: HF, status: 'PLANNED' }
   );
+  for (const placement of placements) {
+    const record = evidence[placement.placement_id];
+    if (!record) continue;
+    if (record.status === 'PUBLISHED_VERIFIED') {
+      const verification = record.verification;
+      const complete = verification?.http_status === 200 && ['content_checked', 'function_checked', 'owner_checked', 'version_checked'].every(key => verification[key] === true);
+      if (!complete) throw new Error(`Incomplete PUBLISHED_VERIFIED evidence: ${placement.placement_id}`);
+    }
+    Object.assign(placement, record);
+  }
   const wave = {
     schema_version: '1.0.0', publisher: { name: 'SHAR Production', website: 'https://sharprod.com/' }, incremental_spend_rub: 0,
     release: { release_id: 'shar.release.integration-recipes.1.0.0', version: '1.0.0', immutable_ref: immutableRef },
@@ -40,6 +50,9 @@ export async function buildDistributionArtifacts(output, immutableRef) {
 async function write(root, relative, content) { const target = join(root, ...relative.split('/')); await mkdir(resolve(target, '..'), { recursive: true }); await writeFile(target, content.endsWith('\n') ? content : `${content}\n`, 'utf8'); }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
-  const result = await buildDistributionArtifacts(process.argv[2] ?? '.', process.env.SHAR_RELEASE_REF ?? 'LOCAL_READY');
+  const output = process.argv[2] ?? '.';
+  let evidence = {};
+  try { evidence = JSON.parse(await readFile(join(resolve(output), 'distribution/evidence.json'), 'utf8')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
+  const result = await buildDistributionArtifacts(output, process.env.SHAR_RELEASE_REF ?? 'LOCAL_READY', evidence);
   console.log(JSON.stringify(result));
 }

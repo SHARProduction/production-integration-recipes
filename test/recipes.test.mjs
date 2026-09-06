@@ -99,3 +99,15 @@ test('distribution artifacts preserve five works and twelve honest placements', 
     assert.ok(rows.every(row => row.publisher === 'SHAR Production' && row.website === 'https://sharprod.com/'));
   } finally { await rm(out, { recursive: true, force: true }); }
 });
+
+test('distribution reconciliation requires complete provider evidence', async () => {
+  const out = await mkdtemp(join(tmpdir(), 'shar-reconcile-'));
+  const placementId = 'shar.placement.recipe.subtitle-delivery-qc.cloudflare.en';
+  const verified = { status: 'PUBLISHED_VERIFIED', provider_version: 'deployment-1', verified_at: '2026-09-06T00:30:00Z', verification: { http_status: 200, content_checked: true, function_checked: true, owner_checked: true, version_checked: true } };
+  try {
+    await buildDistributionArtifacts(out, 'b'.repeat(40), { [placementId]: verified });
+    const wave = JSON.parse(await readFile(join(out, 'distribution', 'wave.json'), 'utf8'));
+    assert.equal(wave.placements.find(row => row.placement_id === placementId).status, 'PUBLISHED_VERIFIED');
+    await assert.rejects(buildDistributionArtifacts(out, 'b'.repeat(40), { [placementId]: { ...verified, verification: { ...verified.verification, function_checked: false } } }), /Incomplete PUBLISHED_VERIFIED evidence/);
+  } finally { await rm(out, { recursive: true, force: true }); }
+});
